@@ -150,6 +150,14 @@ Nama dan struktur folder implementasi boleh disesuaikan pada tahap fondasi. Jang
 | 18 Nov 2026 | Tampilan interaktif dengan lingkaran ikon, referensi OSDM UNSAM dan warna RSU | DISEPAKATI |
 | 18 Nov 2026 | Portal berita WordPress menggunakan `matsafour.mtsn4jombang.sch.id` | **DISEPAKATI — menggantikan seluruh kandidat nama sebelumnya** |
 
+## 11.1 Revisi visual P1 — 18 November 2026
+
+- [DISEPAKATI] Headline portal utama: **Satu Klik, Semua Layanan.**
+- [DISEPAKATI] Nama ikon berita dan pengumuman ditulis **MATSAFOUR** dan **PENGUMUMAN**.
+- [DISEPAKATI] Bagian tengah lingkaran menggunakan **logo resmi MTsN 4 Jombang**, bukan teks.
+- [DISEPAKATI] Ikon seluruh layanan menggunakan **satu gaya outline sederhana dan seragam**; prototipe menggunakan desain bergaya Lucide.
+- [PERLU REVIEW] Kualitas gambar logo dan detail visual ikon pada prototipe sebelum P1 dinyatakan FIX.
+
 ## 12. Hal yang belum ditetapkan
 
 - Susunan akhir layanan pada beranda dan manajemen, terutama CBT/KMP-RDM.
