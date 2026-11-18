@@ -1,0 +1,71 @@
+
+    :root{color-scheme:dark;--deep:#042f27;--green:#075d48;--emerald:#10b981;--mint:#a7f3d0;--text:#f4fff9;--muted:#bdd4cc;--line:rgba(255,255,255,.18);--glass:rgba(5,47,39,.54)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100svh;font:500 16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(ellipse 85% 75% at 50% 42%,#128563 0%,#0a634c 33%,#043d34 68%,#031e1c 100%);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.19;background-image:radial-gradient(#d0f8e2 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 75%,transparent)}
+    a{color:inherit;text-decoration:none}button{font:inherit}
+    .shell{position:relative;max-width:1280px;min-height:100svh;margin:auto;padding:22px clamp(18px,4vw,60px) 24px;display:flex;flex-direction:column}
+    .header{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .emblem{width:47px;height:47px;display:grid;place-items:center;border:1px solid #b6e6cd;border-radius:50%;background:#effbf3;color:#08533f;font-size:24px;box-shadow:0 8px 35px #001e1940}
+    .brand b{font-weight:800;letter-spacing:.02em}.brand small{display:block;font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+    .top-links{display:flex;align-items:center;gap:8px}
+    .top-links button,.top-links a,.back{border:1px solid var(--line);background:rgba(255,255,255,.07);border-radius:999px;padding:10px 15px;color:var(--text);cursor:pointer}
+    .top-links button:hover,.top-links a:hover,.back:hover{background:rgba(255,255,255,.17)}
+    .intro{text-align:center;padding-top:34px}
+    .eyebrow{display:inline-block;color:#baf8d7;border:1px solid #7ffac46b;border-radius:999px;padding:4px 13px;font-size:11px;letter-spacing:.23em;text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(29px,4.5vw,57px);line-height:1.09;letter-spacing:-.045em;margin:17px 0 9px}
+    .intro p{color:var(--muted);font-size:clamp(13px,1.5vw,16px);margin:0}
+    .view[hidden]{display:none!important}
+    .stage{position:relative;width:min(100%,970px);height:clamp(430px,49vw,545px);margin:6px auto 0;isolation:isolate}
+    .stage:before,.stage:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none}
+    .stage:before{width:min(85vw,660px);height:min(85vw,480px);border:1px dashed rgba(208,255,228,.22)}
+    .stage:after{width:min(58vw,425px);height:min(58vw,425px);border:1px solid rgba(216,255,231,.24);box-shadow:0 0 130px 30px rgba(28,211,144,.11)}
+    .hub{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(210px,28vw,312px);aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 27% 18%,#1d9d74 0%,#06694e 48%,#024536 95%);border:2px solid rgba(212,255,230,.65);box-shadow:0 0 0 12px rgba(182,255,219,.05),0 30px 100px #001f1e8a,inset 0 0 48px #49f4aa26}
+    .hub .tiny{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#c1f9db}.hub strong{max-width:220px;font-size:clamp(22px,2.5vw,33px);line-height:1.16;margin:9px 0}.hub small{font-size:12px;color:#cff7e3;max-width:205px}
+    .node{position:absolute;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:112px;transform:translate(-50%,-50%);text-align:center;border-radius:24px;padding:8px 12px;transition:transform .2s,filter .2s}
+    .node .bubble{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;border:1px solid rgba(205,255,224,.67);background:linear-gradient(145deg,rgba(244,255,245,.23),rgba(3,47,37,.72));box-shadow:0 12px 30px #001c164a,inset 0 1px 8px #eaffef21;backdrop-filter:blur(12px);font-size:32px}
+    .node .name{font-weight:800;font-size:14px;text-shadow:0 2px 16px #002e2580}
+    .node:hover,.node:focus-visible{transform:translate(-50%,-55%) scale(1.08);filter:drop-shadow(0 0 20px #7cfabb87);outline:none}
+    .node:focus-visible .bubble{outline:3px solid #d4ffe7;outline-offset:4px}
+    .node .tip{position:absolute;top:100%;color:var(--deep);font-size:12px;font-weight:600;background:#e5fff0;padding:6px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+    .node:hover .tip,.node:focus-visible .tip{opacity:1}
+    .p1{left:17%;top:21%}.p2{left:83%;top:21%}.p3{left:11%;top:67%}.p4{left:89%;top:67%}
+    .p5{left:50%;top:84%}
+    .management .p1{left:19%;top:16%}.management .p2{left:81%;top:16%}.management .p3{left:8%;top:51%}.management .p4{left:92%;top:51%}.management .p5{left:27%;top:77%}.management .p6{left:73%;top:77%}
+    .management .node .bubble{width:69px;height:69px;font-size:29px}
+    .section-nav{margin:auto auto 0;border:1px solid var(--line);border-radius:24px;padding:15px 18px;background:var(--glass);backdrop-filter:blur(14px);width:min(100%,760px)}
+    .nav-caption{display:block;font-size:10px;font-weight:800;color:var(--mint);letter-spacing:.19em;text-align:center;text-transform:uppercase;margin-bottom:11px}
+    .nav-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+    .nav-card{display:flex;gap:10px;align-items:center;text-align:left;border:1px solid #a5ecca36;border-radius:15px;padding:10px 19px;background:#ffffff0e;color:#fff;cursor:pointer;min-width:220px}
+    .nav-card:hover,.nav-card:focus-visible{background:#b4ffda2c;outline:2px solid #a7f3d0;outline-offset:2px}
+    .nav-card .nav-ico{font-size:24px}.nav-card b{font-size:13px;display:block}.nav-card small{font-size:11px;color:var(--muted)}
+    .footer{text-align:center;font-size:11px;color:#a7cabe;padding-top:17px}
+    @media(max-width:730px){
+      .shell{padding:17px 15px 20px}
+      .brand b{font-size:13px}.brand small{font-size:9px}.emblem{width:39px;height:39px;font-size:20px}
+      .top-links a{display:none}.top-links button{padding:8px 12px;font-size:12px}
+      .intro{padding-top:29px}.intro h1{font-size:32px}
+      .stage,.management .stage{height:auto;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:30px auto 28px;padding:0 6px}
+      .stage:before,.stage:after{display:none}
+      .hub{position:relative;grid-column:1/-1;left:auto;top:auto;transform:none;margin:0 auto 11px;width:204px;height:204px}
+      .hub strong{font-size:23px}
+      .node,.management .node{position:relative;left:auto!important;top:auto!important;transform:none!important;min-width:0;width:100%;padding:14px 5px;border:1px solid var(--line);background:#ffffff12;border-radius:19px;gap:6px}
+      .node:hover,.node:focus-visible{filter:drop-shadow(0 0 10px #7cfabb87)}
+      .node .bubble,.management .node .bubble{width:63px;height:63px;font-size:26px}
+      .node .name{font-size:13px}.node .tip{display:none}
+      .section-nav{margin-top:auto}
+      .nav-actions{gap:10px}.nav-card{min-width:0;width:100%;justify-content:center}
+      .prototype{font-size:8px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+    /* Revisi P1: logo resmi di pusat dan satu gaya ikon outline. */
+    .emblem{background:#fff;padding:3px;overflow:hidden}.emblem img{display:block;width:100%;height:100%;object-fit:contain}
+    .logo-hub{background:radial-gradient(circle at 50% 45%,rgba(17,148,80,.18) 0%,rgba(4,78,59,.45) 55%,rgba(2,45,35,.82) 100%);border:2px solid rgba(189,247,214,.75);box-shadow:0 0 0 12px rgba(182,255,206,.08),0 30px 100px rgba(0,31,30,.75),inset 0 0 55px rgba(213,255,219,.10)}
+    .logo-hub img{width:81%;height:81%;object-fit:contain;filter:drop-shadow(0 10px 14px #003a2829)}
+    .node .bubble svg{width:32px;height:32px;display:block;color:#d8ffec;stroke:currentColor}
+    .management .node .bubble svg{width:30px;height:30px}
+    @media(max-width:730px){.logo-hub img{width:82%;height:82%}.node .bubble svg,.management .node .bubble svg{width:27px;height:27px}}
+  

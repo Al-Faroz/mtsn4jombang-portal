@@ -132,8 +132,8 @@ Nama dan struktur folder implementasi boleh disesuaikan pada tahap fondasi. Jang
 | Tahap | Deliverable | Gerbang persetujuan |
 |---|---|---|
 | P0 | Master Dokumen dan inventaris layanan | Pengelompokan/terminologi final |
-| P1 | Mockup visual beranda + manajemen desktop/mobile | Desain disetujui |
-| P2 | Fondasi frontend dan konfigurasi tautan | Berjalan lokal |
+| P1 | Mockup visual beranda + manajemen desktop/mobile | **FIX (disetujui)** |
+| P2 | Fondasi frontend dan konfigurasi tautan | **FIX (disetujui)** |
 | P3 | Beranda dan lingkaran interaktif | Interaksi & responsif PASS |
 | P4 | Area Layanan Manajemen | Navigasi & tautan PASS |
 | P5 | QA aksesibilitas, performa, keamanan tautan | Checklist PASS |
@@ -167,3 +167,11 @@ Nama dan struktur folder implementasi boleh disesuaikan pada tahap fondasi. Jang
 - Detail teknis pemindahan WordPress dan redirect URL lama.
 
 **Aturan:** hal-hal tersebut tidak boleh diputuskan sepihak pada tahap dokumentasi.
+
+
+## 13. Status implementasi P2 (18 November 2026)
+
+- **P1 FIX**: prototipe di `prototypes/p1/` menjadi referensi desain terkunci.
+- **P2 FIX**: pengelola menyetujui fondasi situs statis pada 18 November 2026. Situs tersedia pada `index.html` dengan aset terpisah di `assets/`.
+- Rilis produksi, pemindahan WordPress, maupun perubahan login aplikasi **belum dilakukan**.
+- Checklist uji lokal: `docs/P2-QA.md`.

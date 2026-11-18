@@ -5,7 +5,7 @@ Repository pengembangan **Portal Digital Terpadu MTsN 4 Jombang**, gerbang navig
 - **Domain portal utama:** https://mtsn4jombang.sch.id/
 - **Portal berita (WordPress):** https://matsafour.mtsn4jombang.sch.id/
 - **Dokumentasi utama:** [Master Dokumen V1.1](docs/MASTER-DOKUMEN-V1.1.md)
-- **Status:** perencanaan dan persiapan mockup; belum ada implementasi landing page atau migrasi WordPress.
+- **Status:** P1 prototipe visual FIX; P2 fondasi website statis FIX (disetujui pengelola). Migrasi WordPress belum dilakukan.
 
 ## Konsep
 
@@ -36,3 +36,22 @@ Acuan struktur visual: [OSDM UNSAM](https://osdm.unsam.ac.id/); acuan nuansa war
 **Master Dokumen → Mockup → Persetujuan → Implementasi bertahap → QA → FIX → Pull Request → Merge.**
 
 Gunakan branch terpisah untuk setiap tahap. Jangan commit data privat, konfigurasi produksi, atau backup database ke repository.
+
+## Menjalankan di localhost (P2)
+
+Folder lokal: `E:\\xampp\\htdocs\\mtsn4jombang-portal`. Buka **http://localhost/mtsn4jombang-portal/** saat Apache XAMPP berjalan, atau buka `index.html` secara langsung di browser.
+
+Website statis tanpa database dan build tools. Struktur aktif:
+
+```text
+index.html
+assets/css/portal.css
+assets/js/portal.js
+assets/img/LogoFlat.svg
+```
+
+Folder `prototypes/p1/` tetap dipertahankan sebagai arsip desain **FIX**. Jangan mengedit folder arsip untuk mengubah website aktif.
+
+**Penting:** domain produksi masih berisi WordPress; jangan deploy konten `index.html` ke root produksi sebelum proses migrasi dan persetujuan rilis.
+
+Checklist P2: [docs/P2-QA.md](docs/P2-QA.md).
