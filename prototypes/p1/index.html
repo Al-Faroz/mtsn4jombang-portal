@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#064e3b">
+  <meta name="description" content="Prototipe visual Portal Digital Terpadu MTsN 4 Jombang.">
+  <title>Portal Digital MTsN 4 Jombang — Prototipe P1</title>
+  <style>
+    :root{color-scheme:dark;--deep:#042f27;--green:#075d48;--emerald:#10b981;--mint:#a7f3d0;--text:#f4fff9;--muted:#bdd4cc;--line:rgba(255,255,255,.18);--glass:rgba(5,47,39,.54)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100svh;font:500 16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(ellipse 85% 75% at 50% 42%,#128563 0%,#0a634c 33%,#043d34 68%,#031e1c 100%);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.19;background-image:radial-gradient(#d0f8e2 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 75%,transparent)}
+    a{color:inherit;text-decoration:none}button{font:inherit}
+    .shell{position:relative;max-width:1280px;min-height:100svh;margin:auto;padding:22px clamp(18px,4vw,60px) 24px;display:flex;flex-direction:column}
+    .header{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .emblem{width:47px;height:47px;display:grid;place-items:center;border:1px solid #b6e6cd;border-radius:50%;background:#effbf3;color:#08533f;font-size:24px;box-shadow:0 8px 35px #001e1940}
+    .brand b{font-weight:800;letter-spacing:.02em}.brand small{display:block;font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+    .top-links{display:flex;align-items:center;gap:8px}
+    .top-links button,.top-links a,.back{border:1px solid var(--line);background:rgba(255,255,255,.07);border-radius:999px;padding:10px 15px;color:var(--text);cursor:pointer}
+    .top-links button:hover,.top-links a:hover,.back:hover{background:rgba(255,255,255,.17)}
+    .intro{text-align:center;padding-top:34px}
+    .eyebrow{display:inline-block;color:#baf8d7;border:1px solid #7ffac46b;border-radius:999px;padding:4px 13px;font-size:11px;letter-spacing:.23em;text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(29px,4.5vw,57px);line-height:1.09;letter-spacing:-.045em;margin:17px 0 9px}
+    .intro p{color:var(--muted);font-size:clamp(13px,1.5vw,16px);margin:0}
+    .view[hidden]{display:none!important}
+    .stage{position:relative;width:min(100%,970px);height:clamp(430px,49vw,545px);margin:6px auto 0;isolation:isolate}
+    .stage:before,.stage:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none}
+    .stage:before{width:min(85vw,660px);height:min(85vw,480px);border:1px dashed rgba(208,255,228,.22)}
+    .stage:after{width:min(58vw,425px);height:min(58vw,425px);border:1px solid rgba(216,255,231,.24);box-shadow:0 0 130px 30px rgba(28,211,144,.11)}
+    .hub{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(210px,28vw,312px);aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 27% 18%,#1d9d74 0%,#06694e 48%,#024536 95%);border:2px solid rgba(212,255,230,.65);box-shadow:0 0 0 12px rgba(182,255,219,.05),0 30px 100px #001f1e8a,inset 0 0 48px #49f4aa26}
+    .hub .tiny{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#c1f9db}.hub strong{max-width:220px;font-size:clamp(22px,2.5vw,33px);line-height:1.16;margin:9px 0}.hub small{font-size:12px;color:#cff7e3;max-width:205px}
+    .node{position:absolute;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:112px;transform:translate(-50%,-50%);text-align:center;border-radius:24px;padding:8px 12px;transition:transform .2s,filter .2s}
+    .node .bubble{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;border:1px solid rgba(205,255,224,.67);background:linear-gradient(145deg,rgba(244,255,245,.23),rgba(3,47,37,.72));box-shadow:0 12px 30px #001c164a,inset 0 1px 8px #eaffef21;backdrop-filter:blur(12px);font-size:32px}
+    .node .name{font-weight:800;font-size:14px;text-shadow:0 2px 16px #002e2580}
+    .node:hover,.node:focus-visible{transform:translate(-50%,-55%) scale(1.08);filter:drop-shadow(0 0 20px #7cfabb87);outline:none}
+    .node:focus-visible .bubble{outline:3px solid #d4ffe7;outline-offset:4px}
+    .node .tip{position:absolute;top:100%;color:var(--deep);font-size:12px;font-weight:600;background:#e5fff0;padding:6px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+    .node:hover .tip,.node:focus-visible .tip{opacity:1}
+    .p1{left:17%;top:21%}.p2{left:83%;top:21%}.p3{left:11%;top:67%}.p4{left:89%;top:67%}
+    .p5{left:50%;top:84%}
+    .management .p1{left:19%;top:16%}.management .p2{left:81%;top:16%}.management .p3{left:8%;top:51%}.management .p4{left:92%;top:51%}.management .p5{left:27%;top:77%}.management .p6{left:73%;top:77%}
+    .management .node .bubble{width:69px;height:69px;font-size:29px}
+    .section-nav{margin:auto auto 0;border:1px solid var(--line);border-radius:24px;padding:15px 18px;background:var(--glass);backdrop-filter:blur(14px);width:min(100%,760px)}
+    .nav-caption{display:block;font-size:10px;font-weight:800;color:var(--mint);letter-spacing:.19em;text-align:center;text-transform:uppercase;margin-bottom:11px}
+    .nav-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+    .nav-card{display:flex;gap:10px;align-items:center;text-align:left;border:1px solid #a5ecca36;border-radius:15px;padding:10px 19px;background:#ffffff0e;color:#fff;cursor:pointer;min-width:220px}
+    .nav-card:hover,.nav-card:focus-visible{background:#b4ffda2c;outline:2px solid #a7f3d0;outline-offset:2px}
+    .nav-card .nav-ico{font-size:24px}.nav-card b{font-size:13px;display:block}.nav-card small{font-size:11px;color:var(--muted)}
+    .footer{text-align:center;font-size:11px;color:#a7cabe;padding-top:17px}
+    .prototype{position:fixed;z-index:10;top:50%;right:0;writing-mode:vertical-rl;background:#e6fff0;color:#064e3b;padding:9px 5px;border-radius:8px 0 0 8px;font-size:10px;font-weight:900;letter-spacing:.14em}
+    @media(max-width:730px){
+      .shell{padding:17px 15px 20px}
+      .brand b{font-size:13px}.brand small{font-size:9px}.emblem{width:39px;height:39px;font-size:20px}
+      .top-links a{display:none}.top-links button{padding:8px 12px;font-size:12px}
+      .intro{padding-top:29px}.intro h1{font-size:32px}
+      .stage,.management .stage{height:auto;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:30px auto 28px;padding:0 6px}
+      .stage:before,.stage:after{display:none}
+      .hub{position:relative;grid-column:1/-1;left:auto;top:auto;transform:none;margin:0 auto 11px;width:204px;height:204px}
+      .hub strong{font-size:23px}
+      .node,.management .node{position:relative;left:auto!important;top:auto!important;transform:none!important;min-width:0;width:100%;padding:14px 5px;border:1px solid var(--line);background:#ffffff12;border-radius:19px;gap:6px}
+      .node:hover,.node:focus-visible{filter:drop-shadow(0 0 10px #7cfabb87)}
+      .node .bubble,.management .node .bubble{width:63px;height:63px;font-size:26px}
+      .node .name{font-size:13px}.node .tip{display:none}
+      .section-nav{margin-top:auto}
+      .nav-actions{gap:10px}.nav-card{min-width:0;width:100%;justify-content:center}
+      .prototype{font-size:8px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+    /* Revisi P1: logo resmi di pusat dan satu gaya ikon outline. */
+    .emblem{background:#fff;padding:3px;overflow:hidden}.emblem img{display:block;width:100%;height:100%;object-fit:contain}
+    .logo-hub{background:radial-gradient(circle at 50% 45%,rgba(17,148,80,.18) 0%,rgba(4,78,59,.45) 55%,rgba(2,45,35,.82) 100%);border:2px solid rgba(189,247,214,.75);box-shadow:0 0 0 12px rgba(182,255,206,.08),0 30px 100px rgba(0,31,30,.75),inset 0 0 55px rgba(213,255,219,.10)}
+    .logo-hub img{width:81%;height:81%;object-fit:contain;filter:drop-shadow(0 10px 14px #003a2829)}
+    .node .bubble svg{width:32px;height:32px;display:block;color:#d8ffec;stroke:currentColor}
+    .management .node .bubble svg{width:30px;height:30px}
+    @media(max-width:730px){.logo-hub img{width:82%;height:82%}.node .bubble svg,.management .node .bubble svg{width:27px;height:27px}}
+  </style>
+</head>
+<body>
+  <span class="prototype" aria-label="Prototipe desain">PROTOTIPE P1</span>
+  <div class="shell">
+    <header class="header">
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"><img src="assets/LogoFlat.svg" alt="" width="39" height="39"></div>
+        <div><b>MTs NEGERI 4 JOMBANG</b><small>Portal Digital Madrasah</small></div>
+      </div>
+      <div class="top-links">
+        <a href="https://matsafour.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer">Kabar Madrasah ↗</a>
+        <button type="button" id="view-switch" aria-label="Ganti tampilan portal">Manajemen →</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="view public" id="public-view" aria-labelledby="public-title">
+        <div class="intro"><span class="eyebrow">Selamat datang</span><h1 id="public-title">Portal Digital Madrasah</h1><p>Portal resmi layanan digital MTs Negeri 4 Jombang</p></div>
+        <div class="stage">
+          <div class="hub logo-hub"><img src="assets/LogoFlat.svg" alt="Logo resmi MTs Negeri 4 Jombang" width="250" height="249"></div>
+          <a class="node p1" href="https://matsafour.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h14v14H5a2 2 0 0 1-2-2V6h1z"/><path d="M18 9h3v9a2 2 0 0 1-2 2H5"/><path d="M7 9h8M7 13h3M13 13h2M7 17h8"/></svg></span><span class="name">MATSAFOUR</span><span class="tip">Berita &amp; kabar madrasah</span></a>
+          <a class="node p2" href="https://sla-sks.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2h-3a4 4 0 0 0-4 4 4 4 0 0 0-4-4H5a2 2 0 0 0-2 2z"/></svg></span><span class="name">SLA-SKS</span><span class="tip">Pembelajaran mandiri</span></a>
+          <a class="node p3" href="https://sapa.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg></span><span class="name">SAPA</span><span class="tip">Layanan PTSP</span></a>
+          <a class="node p4" href="https://pengumuman.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13z"/><path d="M7 14v5a2 2 0 0 0 4 0v-4"/></svg></span><span class="name">PENGUMUMAN</span><span class="tip">Pengumuman madrasah</span></a>
+          <a class="node p5" href="https://cbt.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M8 22h8M12 18v4"/></svg></span><span class="name">CBT</span><span class="tip">Ujian berbasis komputer (posisi sementara)</span></a>
+        </div>
+      </section>
+
+      <section class="view management" id="management-view" aria-labelledby="management-title" hidden>
+        <div class="intro"><span class="eyebrow">Layanan internal</span><h1 id="management-title">Manajemen Madrasah.</h1><p>Akses cepat aplikasi untuk pengelola, guru, dan tenaga kependidikan</p></div>
+        <div class="stage">
+          <div class="hub logo-hub"><img src="assets/LogoFlat.svg" alt="Logo resmi MTs Negeri 4 Jombang" width="250" height="249"></div>
+          <a class="node p1" href="https://sisfour.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v11H3zM9 21v-7h6v7M7 11h.01M17 11h.01"/></svg></span><span class="name">SISFOUR</span><span class="tip">SIM Madrasah</span></a>
+          <a class="node p2" href="https://proguru.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 10 10-5 10 5-10 5zM6 12v5c3.8 2.5 8.2 2.5 12 0v-5M22 10v7"/></svg></span><span class="name">PROGURU</span><span class="tip">Pengembangan profesional</span></a>
+          <a class="node p3" href="https://sarpras.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 7.5a5 5 0 0 0-6.9 6.9l-5.1 5.1a2 2 0 0 0 2.8 2.8l5.1-5.1a5 5 0 0 0 6.9-6.9l-4 4-3-3z"/></svg></span><span class="name">SARPRAS</span><span class="tip">Sarana prasarana</span></a>
+          <a class="node p4" href="https://kantin.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 11 3-7M19 11l-3-7M3 11h18l-2 10H5zM9 15v3M15 15v3"/></svg></span><span class="name">KANTIN</span><span class="tip">Pengelolaan kantin</span></a>
+          <a class="node p5" href="https://rdm.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M7 17v-5h3v5M13 17V8h3v9M19 17V5h2v12"/></svg></span><span class="name">RDM</span><span class="tip">Rapor digital</span></a>
+          <a class="node p6" href="https://kmp-rdm.mtsn4jombang.sch.id/" target="_blank" rel="noopener noreferrer"><span class="bubble" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6zM17 12h.01"/></svg></span><span class="name">KMP-RDM</span><span class="tip">Cetak ulang rapor</span></a>
+        </div>
+      </section>
+    </main>
+
+    <nav class="section-nav" aria-label="Navigasi kategori layanan">
+      <span class="nav-caption">Jelajahi kategori</span>
+      <div class="nav-actions">
+        <button class="nav-card" type="button" id="public-btn"><span class="nav-ico" aria-hidden="true">🌐</span><span><b>Portal Utama</b><small>Berita &amp; layanan publik</small></span></button>
+        <button class="nav-card" type="button" id="management-btn"><span class="nav-ico" aria-hidden="true">⚙️</span><span><b>Manajemen Madrasah</b><small>Aplikasi operasional</small></span></button>
+      </div>
+    </nav>
+    <footer class="footer">© 2026 MTs Negeri 4 Jombang · Prototipe visual, bukan situs produksi · Create By LemahTeles</footer>
+  </div>
+  <script>
+    (function(){
+      const pub=document.getElementById('public-view'),man=document.getElementById('management-view'),switcher=document.getElementById('view-switch');
+      function activate(view){
+        const isMan=view==='manajemen';
+        pub.hidden=isMan;man.hidden=!isMan;
+        switcher.textContent=isMan?'← Portal Utama':'Manajemen →';
+        document.title=(isMan?'Manajemen Madrasah':'Portal Digital')+' — MTsN 4 Jombang | P1';
+        history.replaceState(null,'',isMan?'#manajemen':'#utama');
+        document.querySelector('main h1:not([hidden])');
+        window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+      }
+      document.getElementById('public-btn').addEventListener('click',()=>activate('utama'));
+      document.getElementById('management-btn').addEventListener('click',()=>activate('manajemen'));
+      switcher.addEventListener('click',()=>activate(man.hidden?'manajemen':'utama'));
+      window.addEventListener('hashchange',()=>{const requested=location.hash==='#manajemen'?'manajemen':'utama';pub.hidden=requested==='manajemen';man.hidden=requested!=='manajemen';switcher.textContent=requested==='manajemen'?'← Portal Utama':'Manajemen →'});
+      if(location.hash==='#manajemen')activate('manajemen');
+    })();
+  </script>
+</body>
+</html>
