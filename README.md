@@ -5,7 +5,7 @@ Repository pengembangan **Portal Digital Terpadu MTsN 4 Jombang**, gerbang navig
 - **Domain portal utama:** https://mtsn4jombang.sch.id/
 - **Portal berita (WordPress):** https://matsafour.mtsn4jombang.sch.id/
 - **Dokumentasi utama:** [Master Dokumen V1.1](docs/MASTER-DOKUMEN-V1.1.md)
-- **Status:** P1 prototipe visual FIX; P2 fondasi website statis sedang diuji. Migrasi WordPress belum dilakukan.
+- **Status:** P1 prototipe visual FIX; P2 fondasi website statis FIX (disetujui pengelola). Migrasi WordPress belum dilakukan.
 
 ## Konsep
 
