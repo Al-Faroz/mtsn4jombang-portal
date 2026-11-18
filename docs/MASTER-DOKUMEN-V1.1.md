@@ -152,11 +152,12 @@ Nama dan struktur folder implementasi boleh disesuaikan pada tahap fondasi. Jang
 
 ## 11.1 Revisi visual P1 — 18 November 2026
 
-- [DISEPAKATI] Headline portal utama: **Satu Klik, Semua Layanan.**
+- [DISEPAKATI] Headline portal utama: **Portal Digital Madrasah**.
 - [DISEPAKATI] Nama ikon berita dan pengumuman ditulis **MATSAFOUR** dan **PENGUMUMAN**.
-- [DISEPAKATI] Bagian tengah lingkaran menggunakan **logo resmi MTsN 4 Jombang**, bukan teks.
+- [DISEPAKATI] Bagian tengah lingkaran menggunakan **logo resmi MTsN 4 Jombang** dari file SVG asli `LogoFlat.svg`, bukan teks atau logo raster.
 - [DISEPAKATI] Ikon seluruh layanan menggunakan **satu gaya outline sederhana dan seragam**; prototipe menggunakan desain bergaya Lucide.
-- [PERLU REVIEW] Kualitas gambar logo dan detail visual ikon pada prototipe sebelum P1 dinyatakan FIX.
+- [DISEPAKATI] Tagline identitas di header juga menggunakan teks **Portal Digital Madrasah**.
+- [PERLU REVIEW] Tampilan logo SVG dan detail ikon pada prototipe sebelum P1 dinyatakan FIX.
 
 ## 12. Hal yang belum ditetapkan
 
