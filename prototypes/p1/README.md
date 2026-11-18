@@ -33,3 +33,12 @@ Buka `prototypes/p1/index.html` di browser. Tidak perlu PHP, database, koneksi b
 5. Warna dan kesan desain sesuai selera pengelola.
 
 **Jangan melakukan deploy ke domain utama dari folder prototipe ini.**
+
+## Revisi P1 — 18 November 2026
+
+- Headline portal utama diganti menjadi **“Satu Klik, Semua Layanan.”**
+- Label aplikasi **MATSAFOUR** dan **PENGUMUMAN** menggunakan huruf kapital.
+- Lingkaran utama pada kedua tampilan menampilkan logo resmi madrasah dari gambar yang diberikan pengelola; aset pratinjau telah dioptimalkan dan disimpan di `assets/logo-mtsn4.svg` sebagai kontainer SVG untuk PNG terkompresi (bukan gambar logo yang digambar ulang).
+- Ikon emoji untuk 11 aplikasi diganti menjadi satu set ikon **outline SVG bergaya Lucide**, disematkan langsung di HTML agar bisa dibuka secara offline tanpa ketergantungan CDN.
+- Ikon dipilih dengan garis dan proporsi konsisten; lisensi dan atribusi Lucide dapat dibaca di https://github.com/lucide-icons/lucide/blob/main/LICENSE. Ikon di prototipe merupakan bentuk SVG sederhana yang disusun mengikuti bahasa visual tersebut, bukan klaim penggunaan paket Lucide resmi.
+- Periksa kembali kualitas logo pada layar resolusi tinggi: aset pratinjau dioptimalkan agar PR ringan; sumber asli `LOGOMTSN4FLAT.png` tersedia dari pengelola dan dapat digunakan untuk produksi.
