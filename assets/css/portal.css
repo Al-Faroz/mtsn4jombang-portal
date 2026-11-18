@@ -47,11 +47,16 @@
       .brand b{font-size:13px}.brand small{font-size:9px}.emblem{width:39px;height:39px;font-size:20px}
       .top-links a{display:none}.top-links button{padding:8px 12px;font-size:12px}
       .intro{padding-top:29px}.intro h1{font-size:32px}
-      .stage,.management .stage{height:auto;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:30px auto 28px;padding:0 6px}
+      .stage,.management .stage{height:auto;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));--stage-gap:14px;gap:var(--stage-gap);margin:30px auto 28px;padding:0 6px}
       .stage:before,.stage:after{display:none}
       .hub{position:relative;grid-column:1/-1;left:auto;top:auto;transform:none;margin:0 auto 11px;width:204px;height:204px}
       .hub strong{font-size:23px}
       .node,.management .node{position:relative;left:auto!important;top:auto!important;transform:none!important;min-width:0;width:100%;padding:14px 5px;border:1px solid var(--line);background:#ffffff12;border-radius:19px;gap:6px}
+      .stage > a.node:nth-of-type(odd):last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - var(--stage-gap)) / 2);
+      }
       .node:hover,.node:focus-visible{filter:drop-shadow(0 0 10px #7cfabb87)}
       .node .bubble,.management .node .bubble{width:63px;height:63px;font-size:26px}
       .node .name{font-size:13px}.node .tip{display:none}
