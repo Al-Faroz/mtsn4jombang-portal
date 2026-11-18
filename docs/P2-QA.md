@@ -1,6 +1,6 @@
 # P2 — Fondasi website statis dan QA
 
-Status: **Menunggu uji lokal**. P1 telah dinyatakan FIX oleh pengelola.
+Status: **P2 FIX**, disetujui pengelola pada 18 November 2026.
 
 ## Ruang lingkup
 
@@ -36,4 +36,4 @@ Status: **Menunggu uji lokal**. P1 telah dinyatakan FIX oleh pengelola.
 - [ ] Footer menampilkan **Create By LemahTeles**.
 - [ ] Periksa Console dan Network pada DevTools, pastikan tidak ada error aset/JS.
 
-**Status PASS hanya setelah pengelola melakukan uji lokal.** Pengujian koneksi aktual ke semua subdomain dan deployment produksi bukan bagian dari P2.
+Checklist ini tersedia untuk pengujian ulang. Persetujuan P2 dicatat pada tingkat tahap.
