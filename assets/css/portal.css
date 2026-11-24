@@ -74,3 +74,8 @@
     .management .node .bubble svg{width:30px;height:30px}
     @media(max-width:730px){.logo-hub img{width:82%;height:82%}.node .bubble svg,.management .node .bubble svg{width:27px;height:27px}}
   
+    /* P5: logo pusat adalah tautan interaktif tanpa mengubah desain P1 FIX. */
+    a.logo-hub{cursor:pointer;text-decoration:none;transition:box-shadow .2s ease,filter .2s ease}
+    a.logo-hub:hover{box-shadow:0 0 0 12px rgba(182,255,206,.10),0 30px 100px rgba(0,31,30,.75),0 0 36px rgba(167,243,208,.28)}
+    a.logo-hub:focus-visible{outline:3px solid #d4ffe7;outline-offset:6px}
+    @media(prefers-reduced-motion:reduce){a.logo-hub{transition:none}}
