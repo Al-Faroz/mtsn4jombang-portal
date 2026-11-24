@@ -175,3 +175,14 @@ Nama dan struktur folder implementasi boleh disesuaikan pada tahap fondasi. Jang
 - **P2 FIX**: pengelola menyetujui fondasi situs statis pada 18 November 2026. Situs tersedia pada `index.html` dengan aset terpisah di `assets/`.
 - Rilis produksi, pemindahan WordPress, maupun perubahan login aplikasi **belum dilakukan**.
 - Checklist uji lokal: `docs/P2-QA.md`.
+
+
+## 14. P5 — SEO Portal Digital (24 November 2026)
+
+- [DISEPAKATI] Google Search Console **sudah didaftarkan** oleh pengelola; tidak perlu pendaftaran ulang.
+- [DISEPAKATI] Optimasi SEO di repository untuk **domain utama**.
+- [DISEPAKATI] Logo pusat pada kedua kategori menjadi tautan ke `https://matsafour.mtsn4jombang.sch.id/`.
+- [IMPLEMENTASI MENUNGGU QA] Meta title/description, canonical, Open Graph, schema.org organisasi, favicon SVG, `robots.txt`, dan `sitemap.xml` telah disiapkan pada branch P5.
+- [DISEPAKATI] Pengelolaan/migrasi WordPress dan konfigurasi DNS dilakukan sendiri oleh pengelola, bukan ruang lingkup pekerjaan ini.
+- [CATATAN] Sitemap domain utama hanya berisi URL beranda; layanan subdomain tidak didaftarkan sebagai bagian sitemap beranda karena berada pada hostname berbeda.
+- [QA] Ikuti `docs/P5-SEO-QA.md`; belum FIX sebelum disetujui.
