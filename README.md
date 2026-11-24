@@ -55,3 +55,14 @@ Folder `prototypes/p1/` tetap dipertahankan sebagai arsip desain **FIX**. Jangan
 **Penting:** domain produksi masih berisi WordPress; jangan deploy konten `index.html` ke root produksi sebelum proses migrasi dan persetujuan rilis.
 
 Checklist P2: [docs/P2-QA.md](docs/P2-QA.md).
+
+## SEO domain utama — P5
+
+- Search Console untuk domain sudah didaftarkan oleh pengelola.
+- Beranda memiliki metadata `title`, `description`, canonical, Open Graph, dan JSON-LD organisasi.
+- `robots.txt` mengarahkan crawler ke `sitemap.xml`.
+- Sitemap domain utama hanya memuat `https://mtsn4jombang.sch.id/`. Subdomain mengelola sitemap dan indeksnya masing-masing.
+- Logo utama pada kedua kategori bisa diklik menuju `https://matsafour.mtsn4jombang.sch.id/`.
+- QA dan langkah verifikasi produksi: [docs/P5-SEO-QA.md](docs/P5-SEO-QA.md).
+
+**Penting:** perubahan ini belum dipasang ke website produksi dan bukan jaminan halaman muncul di peringkat atas Google.
